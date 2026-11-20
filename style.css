@@ -1,1 +1,608 @@
 
+/* =================================
+   مشروع نور - دليلك الإسلامي
+   ملف التصميم الرئيسي
+================================= */
+
+/* الألوان الأساسية */
+
+:root {
+    --primary: #155b49;
+    --secondary: #1d725a;
+    --gold: #c49a45;
+
+    --background: #f4f7f2;
+    --card: #ffffff;
+
+    --text: #18352e;
+    --muted: #75847d;
+
+    --border: #e3eae4;
+    --shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+/* الوضع الداكن */
+
+body.dark {
+    --background: #101b18;
+    --card: #1b2b25;
+
+    --text: #f0f5f1;
+    --muted: #aab9b0;
+
+    --border: #34473d;
+    --shadow: 0 5px 20px rgba(0,0,0,0.2);
+
+    --primary: #83c8a9;
+    --secondary: #5da989;
+}
+
+/* الإعدادات العامة */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+
+    font-family: Tahoma, Arial, sans-serif;
+
+    line-height: 1.8;
+
+    transition: 0.3s;
+    padding-bottom: 90px;
+}
+
+/* رأس التطبيق */
+
+.header {
+    background: linear-gradient(
+        135deg,
+        #103d32,
+        #1d725a
+    );
+
+    color: white;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo span {
+    font-size: 40px;
+    color: #f0d38a;
+}
+
+.logo h1 {
+    font-size: 24px;
+}
+
+.logo p {
+    font-size: 12px;
+    color: #d4e8dd;
+}
+
+.theme-btn {
+    background: rgba(255,255,255,0.15);
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    color: white;
+
+    border-radius: 12px;
+
+    padding: 10px 14px;
+
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* المحتوى الرئيسي */
+
+main {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 20px;
+}
+
+/* الترحيب */
+
+.welcome {
+    background: linear-gradient(
+        135deg,
+        #155b49,
+        #26785d
+    );
+
+    color: white;
+
+    border-radius: 22px;
+
+    padding: 30px 20px;
+
+    margin-bottom: 25px;
+
+    box-shadow: var(--shadow);
+}
+
+.welcome h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    color: #e1eee6;
+}
+
+.bismillah {
+    margin-top: 22px;
+
+    padding: 15px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    font-size: 23px;
+
+    color: #f4d995;
+}
+
+/* أقسام الصفحة الرئيسية */
+
+.sections {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.section-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 22px 12px;
+
+    text-align: center;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow);
+
+    transition: 0.25s;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--gold);
+}
+
+.section-card span {
+    font-size: 38px;
+
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+.section-card h3 {
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.section-card p {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+/* الصفحات الداخلية */
+
+.page {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    margin-top: 15px;
+
+    box-shadow: var(--shadow);
+}
+
+.page h2 {
+    color: var(--primary);
+
+    margin-bottom: 18px;
+
+    font-size: 23px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* المدخلات */
+
+input,
+select {
+    width: 100%;
+
+    padding: 13px;
+
+    margin: 10px 0;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--gold);
+}
+
+/* القرآن الكريم */
+
+#quranContent {
+    margin-top: 20px;
+}
+
+.surah-card {
+    background: var(--background);
+
+    border: 1px solid var(--border);
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    margin-bottom: 10px;
+
+    cursor: pointer;
+}
+
+.ayah {
+    padding: 18px 5px;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 26px;
+
+    line-height: 2.3;
+
+    text-align: justify;
+}
+
+.ayah-number {
+    color: var(--gold);
+
+    font-size: 15px;
+
+    margin: 0 5px;
+}
+
+/* الأذكار والأدعية */
+
+.zikr-card,
+.dua-card,
+.info-card {
+    background: var(--background);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    margin: 14px 0;
+}
+
+.zikr-card p,
+.dua-card p {
+    font-size: 20px;
+
+    line-height: 2;
+}
+
+.zikr-card small {
+    color: var(--gold);
+}
+
+/* المسبحة */
+
+.counter {
+    text-align: center;
+
+    font-size: 75px;
+
+    font-weight: bold;
+
+    color: var(--gold);
+
+    padding: 30px 0;
+}
+
+.main-btn,
+.reset-btn {
+    display: block;
+
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    border: none;
+
+    margin-top: 12px;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.main-btn {
+    background: var(--primary);
+
+    color: white;
+}
+
+.reset-btn {
+    background: var(--background);
+
+    border: 1px solid var(--border);
+
+    color: var(--text);
+}
+
+.main-btn:active {
+    transform: scale(0.97);
+}
+
+/* المعلومات الإسلامية */
+
+.info-card h3 {
+    color: var(--gold);
+
+    margin-bottom: 10px;
+}
+
+.info-card li {
+    margin: 8px 20px;
+}
+
+.arabic {
+    font-size: 24px;
+
+    line-height: 2.2;
+
+    text-align: center;
+}
+
+/* شريط التنقل السفلي */
+
+.bottom-nav {
+    position: fixed;
+
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    background: var(--card);
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    padding: 10px 3px;
+
+    z-index: 100;
+
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.04);
+}
+
+.bottom-nav button {
+    background: transparent;
+
+    border: none;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 3px;
+}
+
+.bottom-nav small {
+    font-size: 10px;
+}
+
+.bottom-nav button:hover {
+    color: var(--primary);
+}
+
+/* الشاشات الكبيرة */
+
+@media (min-width: 700px) {
+
+    .sections {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bottom-nav {
+        width: 550px;
+
+        right: 50%;
+
+        transform: translateX(50%);
+
+        bottom: 15px;
+
+        border: 1px solid var(--border);
+
+        border-radius: 18px;
+    }
+
+    body {
+        padding-bottom: 110px;
+    }
+
+}
+
+/* الشاشات الصغيرة */
+
+@media (max-width: 380px) {
+
+    main {
+        padding: 12px;
+    }
+
+    .welcome h2 {
+        font-size: 19px;
+    }
+
+    .section-card {
+        padding: 15px 8px;
+    }
+
+    .section-card h3 {
+        font-size: 14px;
+    }
+
+    .ayah {
+        font-size: 22px;
+    }
+
+}
+/* تصميم صفحات المصحف */
+.mushaf-toolbar,
+.mushaf-navigation,
+.mushaf-jump {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.mushaf-page-number {
+    color: #176b55;
+    font-size: 19px;
+}
+
+.mushaf-paper {
+    background: #fffdf5;
+    color: #25251f;
+    border: 2px solid #d8cba9;
+    border-radius: 12px;
+    padding: 28px 22px;
+    min-height: 420px;
+    line-height: 2.3;
+    text-align: justify;
+    direction: rtl;
+    box-shadow: 0 3px 12px #00000012;
+}
+
+.mushaf-ayah {
+    display: inline;
+    line-height: 2.3;
+}
+
+.mushaf-surah-heading {
+    text-align: center;
+    color: #176b55;
+    border: 1px solid #d8cba9;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 18px 0;
+}
+
+.mushaf-jump input {
+    width: 90px;
+    padding: 9px;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}
+
+.mushaf-navigation button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.dark .mushaf-paper {
+    background: #242820;
+    color: #f4edda;
+    border-color: #71694f;
+}
+
+.dark .mushaf-surah-heading {
+    color: #a8d8bd;
+    border-color: #71694f;
+}
+
+@media (max-width: 600px) {
+    .mushaf-paper {
+        padding: 18px 12px;
+        min-height: 350px;
+        line-height: 2.1;
+    }
+
+    .mushaf-toolbar,
+    .mushaf-navigation,
+    .mushaf-jump {
+        justify-content: center;
+    }
+}
