@@ -1,1 +1,303 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>نور | دليلك الإسلامي</title>
+
+    <meta name="theme-color" content="#123b32">
+    <meta name="description" content="نور، تطبيقك الإسلامي للقرآن والأذكار والأدعية والتسبيح">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <!-- رأس التطبيق -->
+    <header class="header">
+
+        <div class="logo">
+            <span>۞</span>
+            <div>
+                <h1>نور</h1>
+                <p>دليلك الإسلامي</p>
+            </div>
+        </div>
+
+        <button class="theme-btn" id="themeBtn">
+            🌙
+        </button>
+
+    </header>
+
+
+    <!-- الصفحة الرئيسية -->
+    <main>
+
+        <section class="welcome">
+
+            <h2>السلام عليكم ورحمة الله وبركاته</h2>
+
+            <p>
+                مرحباً بك في نور، رفيقك في القرآن والذكر والطاعة.
+            </p>
+
+            <div class="bismillah">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </div>
+
+        </section>
+
+
+        <!-- أقسام التطبيق -->
+        <section class="sections">
+
+            <button class="section-card" onclick="showPage('quran')">
+                <span>📖</span>
+                <h3>القرآن الكريم</h3>
+                <p>القرآن كاملًا بالسور والآيات</p>
+            </button>
+
+            <button class="section-card" onclick="showPage('azkar')">
+                <span>🌿</span>
+                <h3>الأذكار</h3>
+                <p>أذكار الصباح والمساء والنوم</p>
+            </button>
+
+            <button class="section-card" onclick="showPage('tasbeeh')">
+                <span>📿</span>
+                <h3>المسبحة الإلكترونية</h3>
+                <p>سبّح واحفظ عدد تسبيحاتك</p>
+            </button>
+
+            <button class="section-card" onclick="showPage('duas')">
+                <span>🤲</span>
+                <h3>الأدعية</h3>
+                <p>أدعية من القرآن والسنة</p>
+            </button>
+
+            <button class="section-card" onclick="showPage('faith')">
+                <span>🕌</span>
+                <h3>الدين الإسلامي</h3>
+                <p>الشهادتان وأركان الإسلام والإيمان</p>
+            </button>
+
+            <button class="section-card" onclick="showPage('settings')">
+                <span>⚙️</span>
+                <h3>الإعدادات</h3>
+                <p>تحكم في إعدادات التطبيق</p>
+            </button>
+
+        </section>
+
+
+        <!-- صفحة القرآن -->
+        <section id="quran" class="page hidden">
+
+            <h2>📖 القرآن الكريم</h2>
+
+            <p>اختر السورة التي تريد قراءتها.</p>
+
+            <input
+                type="text"
+                id="surahSearch"
+                placeholder="ابحث عن سورة..."
+            >
+
+            <div id="surahList"></div>
+
+            <div id="quranContent"></div>
+
+        </section>
+
+
+        <!-- صفحة الأذكار -->
+        <section id="azkar" class="page hidden">
+
+            <h2>🌿 الأذكار</h2>
+
+            <select id="azkarType">
+                <option value="morning">أذكار الصباح</option>
+                <option value="evening">أذكار المساء</option>
+                <option value="sleep">أذكار النوم</option>
+                <option value="after">أذكار بعد الصلاة</option>
+            </select>
+
+            <div id="azkarContent"></div>
+
+        </section>
+
+
+        <!-- صفحة المسبحة -->
+        <section id="tasbeeh" class="page hidden">
+
+            <h2>📿 المسبحة الإلكترونية</h2>
+
+            <p>اختر الذكر الذي تريد ترديده</p>
+
+            <select id="tasbeehText">
+                <option>سبحان الله</option>
+                <option>الحمد لله</option>
+                <option>الله أكبر</option>
+                <option>لا إله إلا الله</option>
+                <option>أستغفر الله</option>
+            </select>
+
+            <div class="counter" id="counter">0</div>
+
+            <button class="main-btn" onclick="increaseCounter()">
+                تسبيح
+            </button>
+
+            <button class="reset-btn" onclick="resetCounter()">
+                إعادة العداد
+            </button>
+
+        </section>
+
+
+        <!-- صفحة الأدعية -->
+        <section id="duas" class="page hidden">
+
+            <h2>🤲 الأدعية</h2>
+
+            <div id="duasContent"></div>
+
+        </section>
+
+
+        <!-- صفحة الدين -->
+        <section id="faith" class="page hidden">
+
+            <h2>🕌 الدين الإسلامي</h2>
+
+            <div class="info-card">
+
+                <h3>الشهادتان</h3>
+
+                <p class="arabic">
+                    أشهد أن لا إله إلا الله،
+                    وأشهد أن محمدًا رسول الله.
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>أركان الإسلام</h3>
+
+                <ol>
+                    <li>الشهادتان.</li>
+                    <li>إقامة الصلاة.</li>
+                    <li>إيتاء الزكاة.</li>
+                    <li>صوم رمضان.</li>
+                    <li>حج البيت لمن استطاع إليه سبيلًا.</li>
+                </ol>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>أركان الإيمان</h3>
+
+                <ol>
+                    <li>الإيمان بالله.</li>
+                    <li>الإيمان بالملائكة.</li>
+                    <li>الإيمان بالكتب.</li>
+                    <li>الإيمان بالرسل.</li>
+                    <li>الإيمان باليوم الآخر.</li>
+                    <li>الإيمان بالقدر خيره وشره.</li>
+                </ol>
+
+            </div>
+
+        </section>
+
+
+        <!-- صفحة الإعدادات -->
+        <section id="settings" class="page hidden">
+
+            <h2>⚙️ إعدادات التطبيق</h2>
+
+            <div class="info-card">
+
+                <label>المظهر</label>
+
+                <select id="themeSelect">
+                    <option value="light">الوضع الفاتح</option>
+                    <option value="dark">الوضع الداكن</option>
+                </select>
+
+            </div>
+
+            <div class="info-card">
+
+                <label>حجم خط القرآن</label>
+
+                <select id="fontSelect">
+                    <option value="22">صغير</option>
+                    <option value="26">متوسط</option>
+                    <option value="32">كبير</option>
+                    <option value="38">كبير جداً</option>
+                </select>
+
+            </div>
+
+            <div class="info-card">
+
+                <button onclick="clearSavedData()">
+                    مسح البيانات المحفوظة
+                </button>
+
+            </div>
+
+            <p>الإصدار 1.0.0</p>
+
+            <p>نور - دليلك الإسلامي</p>
+
+        </section>
+
+    </main>
+
+
+    <!-- شريط التنقل -->
+    <nav class="bottom-nav">
+
+        <button onclick="showPage('home')">
+            🏠
+            <small>الرئيسية</small>
+        </button>
+
+        <button onclick="showPage('quran')">
+            📖
+            <small>القرآن</small>
+        </button>
+
+        <button onclick="showPage('azkar')">
+            🌿
+            <small>الأذكار</small>
+        </button>
+
+        <button onclick="showPage('tasbeeh')">
+            📿
+            <small>المسبحة</small>
+        </button>
+
+        <button onclick="showPage('settings')">
+            ⚙️
+            <small>الإعدادات</small>
+        </button>
+
+    </nav>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+<div class="section-card">
+    <h3>الشيخ أحمد الصاوي</h3>
+</div>
